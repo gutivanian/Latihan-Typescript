@@ -47,6 +47,10 @@
     <p>
         Untuk menimpa tipe error yang akan dilemparkan oleh Typescript dalam proses casting, pertama perlu dilakukan casting ke unknown dan kemudian di casting ke tipe target.
     </p>
+    <pre>
+        let x = 'hello';
+        console.log(((x as unknown) as number).length); // x is not actually a number so this will return undefined
+    </pre>
 
     
 
