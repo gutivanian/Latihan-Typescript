@@ -24,6 +24,12 @@
         let x: unknown = 4;
         console.log((x as string).length); // prints undefined since numbers don't have a length
     </pre>
+    <p>
+        Typescript akan tetap mengecek tipe data dari variabel yang akan dicasting untuk mencegah proses casting yang tidak benar. Contoh dibawah adalah proses yang akan melemparkan error karena Typescript mengetahui bahwa melakukan casting dari string ke number tidak masuk akal tanpa mengubah datanya.
+    </p>
+    <pre>
+        console.log((4 as string).length); // Error: Conversion of type 'number' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+    </pre>
 
     
 
