@@ -20,6 +20,10 @@
         let x: unknown = 'hello';
     </pre>
     <p> Casting tiak benar-benar mengubah tipe data dari variabel. Kode dibawah tidak akan bekerja seperti yang diinginkan karena x masih tetap berupa number</p>
+    <pre>
+        let x: unknown = 4;
+        console.log((x as string).length); // prints undefined since numbers don't have a length
+    </pre>
 
     
 
