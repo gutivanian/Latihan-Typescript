@@ -16,9 +16,12 @@
         Sebuah cara langsung untuk melakukan casting adalah dengan menggunakan kata kunci "as", yang akan secara langsung mengubah tipe data variabel.
     </p>
     <pre>
-        let x: unknown = 'hello';
         console.log((x as string).length);
+        let x: unknown = 'hello';
     </pre>
+    <p> Casting tiak benar-benar mengubah tipe data dari variabel. Kode dibawah tidak akan bekerja seperti yang diinginkan karena x masih tetap berupa number</p>
+
+    
 
 </body>
 </html>
