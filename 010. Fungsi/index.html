@@ -67,7 +67,11 @@
     <p>
         Menuliskan parameter dengan penamaan sama saja dengan menulis tipe parameter secara normal. Dalam contoh ini, divide adalah sebuah fungsi yang menerima satu parameter, yaitu sebuah objek yang memiliki dua properti: dividend dan divisor. Kedua properti ini bertipe number.
     </p>
-    
+    <pre>
+        function divide({ dividend, divisor }: { dividend: number, divisor: number }) {
+            return dividend / divisor;
+        }
+    </pre>
 
 
 
