@@ -34,9 +34,18 @@
 
     <h2>Parameter</h2>
     <p>
-        Parameter fungsi juga dapat diberi tipe dengan sintaks yang sama dengan saat deklarasi variabel
+        Parameter fungsi juga dapat diberi tipe dengan sintaks yang sama dengan saat deklarasi variabel. Jika tidak ada tipe parameter yang didefinisikan, Typescript akan memberikan tipe default ke "any".
     </p>
-    
+    <pre>
+        function multiply(a: number, b: number) {
+            return a * b;
+          }
+    </pre>
+
+    <h2>Parameter Opsional</h2>
+    <p>
+        Secara default, Typescript akan mengasumsikan bahwa semua parameter diperlukan, namun kita bisa membuatnya opsional.
+    </p>
 
 
 
