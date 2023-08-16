@@ -27,6 +27,12 @@
     <p>
         Terkadang kita perlu untuk mengetahui tipe data pada tipe data gabungan agar tidak melemparkan error
     </p>
+    <pre>
+        function printStatusCode(code: string | number) {
+          console.log(`My status code is ${code.toUpperCase()}.`) &#47;&#47; error: Property &#39;toUpperCase&#39; does not exist ontype &#39;string | number&#39;.
+          Property &#39;toUpperCase&#39; does not exist on type &#39;number&#39;
+        }
+    </pre>
 
 </body>
 </html>
