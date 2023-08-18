@@ -15,7 +15,13 @@
     <p>
         Kita bisa menggunakan "|" ketika parameter memiliki tipe data string atau number.
     </p>
-    
+    <pre>
+        function printStatusCode(code: string | number) {
+          console.log(`My status code is ${code}.`)
+        }
+        printStatusCode(404);
+        printStatusCode(&#39;404&#39;);
+    </pre>
 
 </body>
 </html>
