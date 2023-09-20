@@ -51,7 +51,18 @@
     <p>
         Kita bisa menambahkan nilai unik untuk setiap komponen pada enum
     </p>
-
+    <pre>
+        enum StatusCodes {
+          NotFound = 404,
+          Success = 200,
+          Accepted = 202,
+          BadRequest = 400
+        }
+        &#47;&#47; logs 404
+        console.log(StatusCodes.NotFound);
+        &#47;&#47; logs 200
+        console.log(StatusCodes.Success);
+    </pre>
 
 </body>
 </html>
