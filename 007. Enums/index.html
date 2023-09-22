@@ -33,6 +33,19 @@
     <p>
         kita bisa menyetting nilai awal dari enum dan kemudian akan secara otomatis bertambah nilainya ketika ditambah item di dalam enum
     </p>
+    <pre>
+        enum CardinalDirections {
+          North,
+          East,
+          South,
+          West
+        }
+        let currentDirection = CardinalDirections.North;
+        &#47;&#47; logs 0
+        console.log(currentDirection);
+        &#47;&#47; throws error as &#39;North&#39; is not a valid enum
+        currentDirection = &#39;North&#39;; &#47;&#47; Error: &quot;North&quot; is not assignable to type &#39;CardinalDirections&#39;.
+    </pre>
 
 
 </body>
