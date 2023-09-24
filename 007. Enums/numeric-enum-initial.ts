@@ -1,4 +1,4 @@
-num CardinalDirections {
+enum CardinalDirections {
     North = 1,
     East,
     South,
