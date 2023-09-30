@@ -8,3 +8,5 @@ var CardinalDirection;
 // console.log(CardinalDirection);
 var currentDirection = CardinalDirection.East;
 console.log(currentDirection);
+currentDirection = 2;
+console.log(currentDirection);
