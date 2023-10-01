@@ -5,4 +5,6 @@ var CardinalDirection;
     CardinalDirection[CardinalDirection["South"] = 2] = "South";
     CardinalDirection[CardinalDirection["West"] = 3] = "West";
 })(CardinalDirection || (CardinalDirection = {}));
-console.log(CardinalDirection);
+// console.log(CardinalDirection);
+var currentDirection = CardinalDirection.East;
+console.log(currentDirection);

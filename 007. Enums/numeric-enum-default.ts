@@ -5,4 +5,7 @@ enum CardinalDirection{
     West
 }
 
-console.log(CardinalDirection);
+// console.log(CardinalDirection);
+
+let currentDirection = CardinalDirection.East;
+console.log(currentDirection);
