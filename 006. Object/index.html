@@ -34,6 +34,12 @@
     <p>
         Properti opsional adalah properti yang tidak perlu didefinisikan di dalam object. Jika tanpa properti opsional, maka properti wajib didefinisikan didalam objek, jika tidak akan memberikan error
     </p>
+    <pre>
+        const car: { type: string, mileage: number } = { &#47;&#47; Error: Property &#39;mileage&#39; is missing in type &#39;{ type: string; }&#39; but required in type &#39;{ type: string; mileage: number; }&#39;.
+          type: &quot;Toyota&quot;,
+        };
+        car.mileage = 2000;
+    </pre>
 
 
 
