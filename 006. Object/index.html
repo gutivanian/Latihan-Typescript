@@ -22,6 +22,18 @@
     <p>
         Typescript dapat infer/menebak tipe dari properti berdasarkan nilainya.
     </p>
+    <pre>
+        const car = {
+          type: &quot;Toyota&quot;,
+        };
+        car.type = &quot;Ford&quot;; &#47;&#47; no error
+        car.type = 2; &#47;&#47; Error: Type &#39;number&#39; is not assignable to type &#39;string&#39;.
+    </pre>
+
+    <h2>Properti Opsional</h2>
+    <p>
+        Properti opsional adalah properti yang tidak perlu didefinisikan di dalam object. Jika tanpa properti opsional, maka properti wajib didefinisikan didalam objek, jika tidak akan memberikan error
+    </p>
 
 
 
