@@ -30,9 +30,17 @@
 
     <h2>Tuple Readonly</h2>
     <p>
-        Kita bisa membuat tuple bersifat read-only
+        Kita bisa membuat tuple bersifat read-only. Tuple hanya perlu didefinisikan tipenya untuk nilai awal. 
     </p>
-
+    <pre>
+        &#47;&#47; define our tuple
+        let ourTuple: &#91;number, boolean, string&#93;;
+        &#47;&#47; initialize correctly
+        ourTuple = &#91;5, false, &#39;Coding God was here&#39;&#93;;
+        &#47;&#47; We have no type safety in our tuple for indexes 3+
+        ourTuple.push(&#39;Something new and wrong&#39;);
+        console.log(ourTuple);
+    </pre>
 
 
 
