@@ -30,7 +30,13 @@
     <p>
         Typescript dapat menebak tipe data dari array jika memiliki nilai didalamnya.
     </p>
-    
+    <pre>
+        const numbers = &#91;1, 2, 3&#93;; &#47;&#47; inferred to type number&#91;&#93;
+        numbers.push(4); &#47;&#47; no error
+        &#47;&#47; comment line below out to see the successful assignment
+        numbers.push(&quot;2&quot;); &#47;&#47; Error: Argument of type &#39;string&#39; is not assignable to parameter of type &#39;number&#39;.
+        let head: number = numbers&#91;0&#93;; &#47;&#47; no error
+    </pre>
 
 
 
