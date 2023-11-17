@@ -20,5 +20,11 @@
     <p>
         Readonly digunakan untuk membuat array yang tidak dapat diubah. Jika kita ingin membuat array yang tidak dapat diubah, kita bisa menggunakan Readonly
     </p>
+    <pre>
+        const names: readonly string&#91;&#93; = &#91;&quot;Dylan&quot;&#93;;
+        names.push(&quot;Jack&quot;); &#47;&#47; Error: Property &#39;push&#39; does not exist on type &#39;readonly string&#91;&#93;&#39;.
+        &#47;&#47; try removing the readonly modifier and see if it works?
+    </pre>
+    
 </body>
 </html>
