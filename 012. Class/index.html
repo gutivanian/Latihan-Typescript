@@ -3,9 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Class</title>
 </head>
 <body>
+    <h1>Class Typescript</h1>
+    <p>
+        Typescript menambahkan tipe dan modifikasi visibilitas ke class javascript. 
+    </p>
+
+    <h2>Anggota: tipe</h2>
+    <p>
+        Anggota dari kelas (properti dan method) dapat diberi tipe dengan anotasi tipe, sama seperti variabel. 
+    </p>
     
+    <h2>Anggota: visibilitas</h2>
+    <p>
+        Anggota kelas juga dapat diberikan modifier khusus yang berefek ke visibilitasnya. Ada tiga jenis modifier visibilitas utama di Typescript.
+    </p>
+    <ol>
+        <li>public - (default) mengijinkan akses ke anggota kelas dari manapun</li>
+        <li>private - hanya mengijinkan akses ke anggota kelas dari dalam kelas itu sendiri</li>
+        <li>protected - hanya mengijinkan akses ke anggota kelas dari dalam kelas itu sendiri dan turunannya(inheritance)</li>
+    </ol>
+
+    <h2>Properti Parameter</h2>
+    <p>
+        Typescript menyediakan cara yang mudah untuk mendefinisikan anggota kelas dalam konstruktor dengan menambahkan modifier visibilitas ke parameternya/
+    </p>
+    <pre>
+        class Person{
+            // nama adalah variabel anggota yang bersifat private
+            public constructor(private name: string){}
+        
+            // get name() { return this.name; }
+            public getName(){
+                return this.name
+            }
+        }
+    </pre>
+
+    <h2>Readonly</h2>
+    <p>
+        Mirip dengan array, kata kunci readonly dapat digunakan untuk membuat anggota kelas yang bersifat read-only atau tidak dapat diubah. 
+    </p>
+    <pre>
+        class Person{
+            private readonly name:string;
+            
+            public constructor(name: string){
+                this.name = name;
+                // nama tidak dapat diubah setelah pendefinisian awal
+            }
+        
+            public getName(): string{
+                return this.name;
+            }
+        }
+        
+        const person = new Person("Jane");
+        console.log(person.getName());
+    </pre>
+
+    <h2>Inheritance: Implements</h2>
+    <p>
+        Interface dapat digunakan untuk mendefinisikan kelas yang dapat diimplementasi dengan kata kunci "implements".
+    </p>
+    <pre>
+        interface shape{
+            getArea: () =>number
+        }
+        
+        class Rectangle implements shape{
+            public constructor(
+                protected readonly width:number,
+                protected readonly height:number
+            ){}
+        
+            public getArea():number{
+                return this.width * this.height
+            }
+        }        
+    </pre>
+    <p>
+        Sebuah class dapat mengimplementasikan beberapa interface dengan menuliskan semuanya setelah "implements" dengan memisahkan dengan koma.
+    </p>
+
+    <h2>Inheritance: Extends</h2>
+    <p>
+        Class dapat mengektensi kelas lain dengan menggunakan kata kunci "extends". Sebuah kelas hanya dapat mengektensi satu kelas lain.
+    </p>
+    <pre>
+        interface Shape{
+            getArea: ()=> number;
+        }
+        
+        class Rectangle implements Shape{
+            public constructor(
+                protected readonly width:number,
+                protected readonly height:number
+            ){}
+        
+            public getArea(): number{
+                return this.width * this.height
+            }
+        }
+        
+        class Square extends Rectangle{
+            public constructor(
+                protected readonly width:number
+            ){
+                super(width, width)
+            }
+            // getArea akan langsung diinherit dari Rectangle
+        }        
+    </pre>
+
+    <h2>Override</h2>
+    <p>
+        Ketika sebuah class mengektensi class lain, maka akan dapat mengganti anggota dari class induk dengan nama yang sama. 
+    </p>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
