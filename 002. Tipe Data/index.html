@@ -50,7 +50,14 @@
     <p>
         Typescript mungkin tidak selalu menebak/infer tipe dari sebuah variabel dengan tepat. Dalam beberapa kasus, akan memberikan tipe data "any" yang akan mengabaikan pengecekan tipe data.
     </p>
-
+    <p>
+        <pre>
+            &#47;&#47; Implicit any as JSON.parse doesn&#39;t know what type of data it returns so it can be &quot;any&quot; thing...
+            const json = JSON.parse(&quot;55&quot;);
+            &#47;&#47; Most expect json to be an object, but it can be a string or a number like this example
+            console.log(typeof json);
+            </pre>
+    </p>
 
 </body>
 </html>
