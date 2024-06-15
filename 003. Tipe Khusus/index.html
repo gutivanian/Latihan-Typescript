@@ -26,5 +26,53 @@
         v = &quot;string&quot;; &#47;&#47; no error as it can be &quot;any&quot; type
         Math.round(v); &#47;&#47; no error as it can be &quot;any&quot; type
     </pre>
+
+    <h2>Tipe Unknown</h2>
+    <p>
+        unknown adalah tipe khusus yang mungkin tidak terkait engan tipe data primitif. Tipe unknown akan memberikan tipe data "any" dan secara efektif mengijinkan semua tipe data untuk digunakan. unknown mirip dengan any, namun lebih aman ketimbang any. Typescript akan melarang tipe unknown untuk digunakan. Untuk memanggil varibel any, kita perlu menambahkan/mendefinisikan tipe data dulu dengan "casting". Casting adalah ketika kita menggunakan kata kunci "as" untuk memanggil properti/variabel sesuai dengan tipe casting.
+    </p>
+    <pre>
+        let w: unknown = 1;
+        w = &quot;string&quot;; &#47;&#47; no error
+        w = {
+          runANonExistentMethod: () =&gt; {
+            console.log(&quot;I think therefore I am&quot;);
+          }
+        } as { runANonExistentMethod: () =&gt; void}
+        &#47;&#47; How can we avoid the error for the code commented out below when we don&#39;t know the type?
+        &#47;&#47; w.runANonExistentMethod(); &#47;&#47; Error: Object is of type &#39;unknown&#39;.
+        if(typeof w === &#39;object&#39; &amp;&amp; w !== null) {
+          (w as { runANonExistentMethod: Function }).runANonExistentMethod();
+        }
+        &#47;&#47; Although we have to cast multiple times we can do a check in the if to secure our type and have a safer casting
+    </pre>
+    
+    <h2>Tipe never</h2>
+    <p>
+        never adalah tipe khusus yang digunakan untuk menandai bahwa suatu fungsi tidak akan mengembalikan nilai. Contoh dibawah adalah fungsi yang tidak akan mengembalikan nilai.
+    </p>
+    <pre>
+        let x: never = true; &#47;&#47; Error: Type &#39;boolean&#39; is not assignable to type &#39;never&#39;.
+    </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
