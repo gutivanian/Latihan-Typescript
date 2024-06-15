@@ -21,5 +21,10 @@
     <p>
         Dan kita bisa menggunakan tipe any untuk mengijinkan semua tipe data digunakan
     </p>
+    <pre>
+        let v: any = true;
+        v = &quot;string&quot;; &#47;&#47; no error as it can be &quot;any&quot; type
+        Math.round(v); &#47;&#47; no error as it can be &quot;any&quot; type
+    </pre>
 </body>
 </html>
