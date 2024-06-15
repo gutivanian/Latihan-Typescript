@@ -13,5 +13,13 @@
     <p>
         any adalah tipe yang tidak mengaktifkan pengecekan tipe dan secara efektif mengijinkan semua tipe untuk digunakan. Contoh dibawah tidak menggunakan tipe any dan akan menghasilkan error
     </p>
+    <pre>
+        let u = true;
+        u = &quot;string&quot;; &#47;&#47; Error: Type &#39;string&#39; is not assignable to type &#39;boolean&#39;.
+        Math.round(u); &#47;&#47; Error: Argument of type &#39;boolean&#39; is not assignable to parameter of type &#39;number&#39;.
+    </pre>
+    <p>
+        Dan kita bisa menggunakan tipe any untuk mengijinkan semua tipe data digunakan
+    </p>
 </body>
 </html>
