@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyof</title>
+</head>
+<body>
+    <h1>Typescript Keyof</h1>
+    <p>
+        Dalam TypeScript, operator keyof digunakan untuk mendapatkan semua kunci (keys) dari suatu tipe objek sebagai tipe union string literal. Ini sangat berguna ketika Anda ingin membuat tipe yang didasarkan pada kunci dari tipe objek lain.
+    </p>
+
+    <h2>Keyof dengan Key Eksplisit</h2>
+    <p>
+        Ketika digunakan pada object dengan key yang eksplisit, keyof akan menghasilkan tipe union dari keys
+    </p>
+    <pre>
+        interface Person{
+            name:string;
+            age:number
+        }
+        
+        function printPersonProperty(person: Person, property: keyof Person){
+            console.log(`properti ari ${person} adalah ${property}`);
+        }
+        
+        let person = {
+            name: "Max",
+            age: 27
+        }
+        
+        printPersonProperty(person, "name");
+        //printPersonProperty(person, "gender"); //error
+    </pre>
+
+    <h2>Keyof dengan Index Signature</h2>
+    <p>
+        keyof juga dapat digunakan dengan index signature untuk mengekstrak tipe indeks.
+    </p>
+    <pre>
+        type StringMap = {[key:string]:unknown};
+
+        function createStringPair(property: keyof StringMap, value: string):StringMap{
+            return {[property]:value}
+        }
+    </pre>
+
+</body>
+</html>

@@ -122,6 +122,72 @@
     <p>
         Ketika sebuah class mengektensi class lain, maka akan dapat mengganti anggota dari class induk dengan nama yang sama. 
     </p>
+    <pre>
+        interface Shape{
+            getArea: () => number;
+        }
+        
+        class Rectangle implements Shape{
+            protected readonly width: number;
+            protected readonly height: number;
+        
+            constructor(width: number, height: number){
+                this.width = width;
+                this.height = height;
+            }
+        
+            public getArea(): number{
+                return this.width * this.height
+            }
+        
+            public toString():string{
+                return `Rectangle[width="${this.width}", height="${this.height}"]`
+            }
+        
+        }
+        
+        class Square extends Rectangle{
+            constructor(width: number){
+                super(width, width);
+            }
+            // ini mengganti toString di rectangle
+            public override toString():string{
+                return `Square[width="${this.width}"]`
+            }
+        }        
+    </pre>
+    <p>
+        Secara default, kata kunci "override" bersifat opsional ketika melakukan override (menimpa) dan hanya membantu untuk mencegah untuk mengoverride secara tidak sengaja method yang tidak eksis. 
+    </p>
+
+    <h2>Class Abstract</h2>
+    <p>
+        Class dapat ditulis dengan cara sedemikian rupa sehingga menjadikannya untuk basis dari class lain tanpa perlu mengimplementasikan semua anggotanya. Ini bisa berjalan dengan menggunakan kata kunci "abstract". Anggota yang tidak diimplementasikan juga perlu menggunakan kata kunci "abstract".
+    </p>
+
+    <pre>
+        abstract class Polygon{
+            public abstract getArea(): number;
+        
+            public toString():string{
+                return `Polygon[area="${this.getArea()}"]`
+            }
+        }
+        
+        class Rectangle extends Polygon{
+            public constructor(
+                protected readonly width: number,
+                protected readonly height: number
+            ){
+                super()
+            }
+        
+            public getArea(): number{
+                return this.width * this.height
+            }
+        }
+    </pre>
+
     
 
 

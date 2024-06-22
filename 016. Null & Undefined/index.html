@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Null & Undefined</title>
+</head>
+<body>
+    <h1>Typescript Null & Undefined</h1>
+    <p>
+        Typescript memiliki cara tertentu untuk mengatasi null dan undefined. Secara default, pengatasan null dan undefined tidak aktif, dan dapat diaktifkan dengan menjadikan strictNullChecks ke true.
+    </p>
+
+    <h2>Tipe</h2>
+    <p>
+        null dan undefined adalah tipe primitive dan dapat digunakan seperti tipe lain seperti string.
+    </p>
+    <pre>
+        let value: string | undefined | null = null;
+
+        value = " hallo"
+        value = undefined
+    </pre>
+
+
+    <h2>Optional Chaining</h2>
+    <p>
+        Optional Chaining adalah fitur Javascript yang dapat bekerja dengan baik dengan penghandal null dari Typescript. Ini mengijinkan untuk mengakses properti dari sebuah objek yang mungkin tidak eksis. Kita dapat menggunakan operator ? ketika mengakses properti
+    </p>
+    <pre>
+        interface House {
+            sqft: number;
+            yard?: {
+                sqft: number;
+            }
+        }
+        
+        function printYardSize(house:House){
+            const yardSize = house.yard?.sqft;
+            if (yardSize === undefined){
+                console.log("No Yard");
+            } else {
+                console.log(`Yard is ${yardSize}`);
+            }
+        }
+        
+        let home: House = {
+            sqft: 500
+        }
+        
+        let home2: House = {
+            sqft: 500,
+            yard: {
+                sqft: 200
+            }
+        }
+        
+        printYardSize(home)
+        printYardSize(home2)        
+    </pre>
+
+    <h2>Nullish Coalescence</h2>
+    <p>
+        Nullish coalescence adalah fitur baru yang diperkenalkan di ECMAScript 2020 (ES11) dan juga didukung dalam TypeScript. Operator nullish coalescence (??) digunakan untuk memberikan nilai default ketika operand pertama adalah null atau undefined. Ini sangat berguna untuk memastikan bahwa variabel memiliki nilai yang valid tanpa harus secara eksplisit memeriksa apakah variabel tersebut adalah null atau undefined.
+    </p>
+    <pre>
+        function printMileage(mileage: number | null | undefined){
+            console.log(`Mileage ${mileage?? 'Not Avaliable'}`);
+        }
+        
+        printMileage(null)
+        printMileage(100)
+    </pre>
+
+    <h2>Null  Assertion</h2>
+    <p>
+        Terkadang sistem tebakan dari typescript tidaklah sempurna, terkadang kita perlu mendefinisikan bahwa nilai yang tidak diperbolehkan adalah null dan undefined.Cara termudah untuk melakukan ini aalah dengan casting, namun typescript juga menyediakan fitur yang dapat membantu kita. Fitur ini disebut dengan null assertion dengan simbol "!".
+    </p>
+    <pre>
+        function getValue(): string | undefined {
+            return 'Hello'
+        }
+        
+        let value = getValue()
+        console.log(`value length: ` + value!.length);
+    </pre>    
+
+    <h2>Array Bounds Handling</h2>
+    <p>
+        Meski dengan 'strictNullChecks' aktif, secara default, TS akan mengasumsikan bahwa array tidak akan mengembalikan undefined (kecuali memang undefined adalah bagian dari tipe array). Config "noUncheckIndexesAccess" dapat digunakan untuk mengubah perilaku ini
+    </p>
+    <pre>
+        let array: number[] = [1, 2, 3];
+        let value = array[0]; // with `noUncheckedIndexedAccess` this has the type `number | undefined`
+    </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

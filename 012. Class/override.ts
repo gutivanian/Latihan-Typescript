@@ -16,7 +16,19 @@ class Rectangle implements Shape{
     }
 
     public toString():string{
-        
+        return `Rectangle[width="${this.width}", height="${this.height}"]`
     }
 
 }
+
+class Square extends Rectangle{
+    constructor(width: number){
+        super(width, width);
+    }
+    // ini mengganti toString di rectangle
+    public override toString():string{
+        return `Square[width="${this.width}"]`
+    }
+}
+
+

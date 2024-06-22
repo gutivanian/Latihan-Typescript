@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility</title>
+</head>
+<body>
+    <h1>Typescript Utility Type</h1>
+    <p>
+        Utility types dalam TypeScript adalah jenis-jenis yang disediakan oleh TypeScript untuk memudahkan manipulasi dan transformasi tipe yang ada. Utility types ini membantu dalam berbagai operasi seperti membuat tipe baru berdasarkan tipe yang sudah ada, menggabungkan tipe, atau bahkan membuat tipe yang lebih ketat atau lebih longgar.
+    </p>
+
+    <h2>Partial</h2>
+    <p>
+        "Partial" mengubah semua properti pada sebuah objek menjadi opsional.
+    </p>
+    <pre>
+        interface Point{
+            x:number;
+            y:number
+        }
+        
+        let pointPart:Partial&lt;Point&gt; = {} 
+        // partial penjadikan x dan y opsional
+        pointPart.x = 10;
+    </pre>
+
+    <h2>Required</h2>
+    <p>
+        Required mengubah semua properti pada objek bersifat wajib. 
+    </p>
+    <pre>
+        interface Car{
+            make: string;
+            model: string;
+            mileage?: Number;
+        }
+        
+        let myCar: Required&lt;Car&gt; = {
+            make: 'Ford',
+            model: 'Focus',
+            mileage: 1000
+        }
+    </pre>
+
+    <h2>Record</h2>
+    <p>
+        Record adalah jalan pintas untuk mendefinisikan sebuah tipe objek dengan tipe key khusus dan tipe value.
+    </p>
+    <pre>
+        const nameAgeMap: Record&lt;string, number&gt; = {
+            'Alice': 25,
+              'Bob': 22
+          }
+          
+    </pre>
+
+    <h2>Omit</h2>
+    <p>
+        Omit mengubah key dari sebuah tipe object.
+    </p>
+    <pre>
+        interface Person {
+            name:string;
+            age: number;
+            location?: string
+        }
+        
+        const bob:Omit&lt;Person, 'age'|'location'&gt; = {
+            name: 'Bob'
+            // omit telah menghilangkan age dan location
+        }        
+    </pre>
+
+    <h2>Pick</h2>
+    <p>
+        Pick membuang semua key kecuali key tertentu yang dipilih.
+    </p>
+    <pre>
+        interface Person{
+            name:string;
+            age: number;
+            location?: string;
+        }
+        
+        const bob: Pick&lt;Person, 'name'&gt; = {
+            name: "Bob"
+            // pick hanya mengambil name saja
+        }        
+    </pre>
+
+    <h2>Exclude</h2>
+    <p>
+        Exclude membuang tipe dari uniwon.
+    </p>
+    <pre>
+        type Primitive = string | number | boolean;
+        const value: Exclude&lt;Primitive,string&gt;  = true;
+        // string tidak lagi dapat digunakan karena telah dibuang dary type
+    </pre>
+
+    <h2>ReturnType</h2>
+    <p>
+        ReturnType mengekstrak tipe return dari sebuah fungsi.
+    </p>
+    <pre>
+        type PointGenerator = () => {
+            x:number;
+            y:number
+        }
+        
+        const point:ReturnType&lt;PointGenerator&gt; = {
+            x:10,
+            y:15
+        }
+    </pre>
+
+    <h2>Parameters</h2>
+    <p>
+        Parameters mengekstrak tipe parameter dari sebuah fungsi sebagai sebuah array
+    </p>
+    <pre>
+        type PointPrinter = (p: {x: number; y: number}) =>
+    void 
+
+        const point: Parameters&lt;PointPrinter&gt;[0]={
+            x:10,
+            y:20
+        }
+    </pre>
+
+    <h2>Readonly</h2>
+    <p>
+        Readonly digunakan untuk membuat tipe baru dimana semua propertinya bersifat read-only. 
+    </p>
+    <pre>
+        interface Person{
+            name:string;
+            age:number
+        }
+        
+        const person: Readonly&lt;Person&gt; = {
+            name: "John",
+            age: 30
+        }
+        
+        // person.name = "asu" 
+        // akan error
+    </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

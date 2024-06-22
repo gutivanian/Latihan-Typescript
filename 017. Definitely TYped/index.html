@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definitely Typed</title>
+</head>
+<body>
+    <h1>DefinitelyTyped</h1>
+    <p>DefinitelyTyped adalah sebuah repositori yang berisi deklarasi tipe TypeScript untuk berbagai pustaka JavaScript pihak ketiga. Ini memungkinkan pengembang untuk menggunakan pustaka JavaScript yang tidak ditulis dalam TypeScript dengan keamanan tipe yang disediakan oleh TypeScript.</p>
+    
+    <h2>Mengapa DefinitelyTyped Penting?</h2>
+    <ul>
+        <li><strong>Keamanan Tipe</strong>: Menambahkan tipe untuk pustaka JavaScript memungkinkan pengembang untuk menangkap kesalahan tipe pada waktu kompilasi daripada waktu runtime.</li>
+        <li><strong>Pengalaman Pengembangan yang Lebih Baik</strong>: Editor teks dan IDE dapat memberikan auto-completion, linting, dan dokumentasi inline saat bekerja dengan pustaka yang memiliki deklarasi tipe.</li>
+        <li><strong>Interoperabilitas</strong>: Memungkinkan pustaka JavaScript yang ada untuk digunakan dalam proyek TypeScript tanpa harus menulis ulang pustaka tersebut dalam TypeScript.</li>
+    </ul>
+
+    <h2>Menggunakan DefinitelyTyped</h2>
+    <p>Pustaka-pustaka dalam DefinitelyTyped tersedia melalui paket npm dengan nama <code>@types/&lt;nama-paket&gt;</code>. Berikut adalah langkah-langkah untuk menggunakannya:</p>
+
+    <h3>Instalasi</h3>
+    <p>Untuk menginstal tipe untuk pustaka tertentu, Anda menggunakan npm atau yarn. Misalnya, jika Anda ingin menambahkan tipe untuk <code>lodash</code>, Anda bisa menjalankan:</p>
+    <pre><code>npm install --save-dev @types/lodash</code></pre>
+    <p>atau dengan yarn:</p>
+    <pre><code>yarn add @types/lodash --dev</code></pre>
+
+    <h3>Penggunaan</h3>
+    <p>Setelah tipe terinstal, TypeScript akan secara otomatis mengenali tipe tersebut. Anda bisa langsung mengimpor dan menggunakan pustaka tersebut dalam kode TypeScript Anda:</p>
+    <pre><code>import _ from 'lodash';
+
+let array = [1, 2, 3, 4];
+let reversedArray = _.reverse(array);
+
+console.log(reversedArray); // Output: [4, 3, 2, 1]</code></pre>
+
+    <h2>Struktur DefinitelyTyped</h2>
+    <p>DefinitelyTyped adalah sebuah repositori besar di GitHub yang diorganisasikan sebagai berikut:</p>
+    <ul>
+        <li><strong>Repositori</strong>: <a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank">DefinitelyTyped GitHub</a></li>
+        <li><strong>Struktur Direktori</strong>: Setiap pustaka memiliki direktori sendiri di dalam direktori <code>types</code>. Misalnya, tipe untuk <code>lodash</code> terletak di <code>types/lodash</code>.</li>
+    </ul>
+
+    <h2>Contoh Isi Paket Tipe</h2>
+    <p>Setiap direktori pustaka di DefinitelyTyped biasanya berisi beberapa file seperti:</p>
+    <ul>
+        <li><strong>Index.d.ts</strong>: File utama yang berisi deklarasi tipe.</li>
+        <li><strong>tsconfig.json</strong>: Konfigurasi TypeScript untuk memastikan tipe tersebut benar.</li>
+        <li><strong>Tests</strong>: Berkas pengujian untuk memastikan tipe bekerja dengan benar.</li>
+    </ul>
+    <p>Contoh dari isi <code>types/lodash/index.d.ts</code> mungkin seperti ini:</p>
+    <pre><code>// Type definitions for Lo-Dash 4.14
+// Project: http://lodash.com/
+// Definitions by: Brian Zengel &lt;https://github.com/bczengel&gt;
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+export = _;
+export as namespace _;
+
+declare const _: _.LoDashStatic;
+
+declare namespace _ {
+interface LoDashStatic {
+    reverse&lt;T&gt;(array: T[]): T[];
+    // ... banyak fungsi lainnya
+}
+}</code></pre>
+
+    <h2>Menyumbang ke DefinitelyTyped</h2>
+    <p>Jika Anda menemukan pustaka yang tidak memiliki tipe atau tipe yang ada perlu perbaikan, Anda bisa menyumbang ke DefinitelyTyped:</p>
+    <ol>
+        <li><strong>Fork Repositori</strong>: Fork repositori DefinitelyTyped di GitHub.</li>
+        <li><strong>Buat Cabang Baru</strong>: Buat cabang baru untuk perubahan Anda.</li>
+        <li><strong>Tambahkan atau Perbarui Tipe</strong>: Tambahkan atau perbarui deklarasi tipe.</li>
+        <li><strong>Tambah Pengujian</strong>: Tambahkan pengujian untuk memastikan tipe Anda bekerja dengan benar.</li>
+        <li><strong>Buat Pull Request</strong>: Kirim pull request ke repositori utama DefinitelyTyped.</li>
+    </ol>
+
+    <h2>Kesimpulan</h2>
+    <p>DefinitelyTyped adalah sumber daya penting bagi pengembang TypeScript yang bekerja dengan pustaka JavaScript pihak ketiga. Dengan menyediakan deklarasi tipe, DefinitelyTyped memungkinkan penggunaan pustaka JavaScript dengan keamanan tipe, memberikan pengalaman pengembangan yang lebih baik, dan membantu dalam penangkapan kesalahan pada waktu kompilasi. Menggunakan DefinitelyTyped adalah praktik yang baik untuk memastikan kode TypeScript Anda tetap kuat dan mudah dipelihara.</p>
+
+    
+
+
+</body>
+</html>

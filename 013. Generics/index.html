@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generics</title>
+</head>
+<body>
+    <h1>Typescript Generics</h1>
+    <p>
+        Generics memungkinkan kita untuk membuat komponen yang dapat bekerja dengan berbagai tipe data, sehingga meningkatkan fleksibilitas dan reusable code. Dengan menggunakan Generics, kita dapat membuat kelas, fungsi, atau interface yang tidak terikat pada satu tipe data tertentu, tetapi dapat beroperasi dengan berbagai tipe data yang diberikan sebagai parameter.
+    </p>
+
+    <h2>Fungsi</h2>
+    <p>
+        Generics dengan fungsi membantu untuk membuat method yang lebih umum yang lebih akurat merepresentasikan type yang digunakan dan dikembalikan. 
+    </p>
+    <pre>
+        function createPair&lt;X,Y&gt;(v1:X, v2:Y): [X,Y]{
+            return [v1,v2];
+        }
+        
+        console.log(createPair&lt;number,string&gt;(72,"saya"))
+    </pre>
+    <p>
+        Typescript juga dapat menebak tipe dari generic parameter berdasarkan parameter fungsi.
+    </p>
+
+    <h2>Class</h2>
+    <p>
+        Generic juga berguna untuk membuat class umum (generalized class)
+    </p>
+    <pre>
+        class NamedValue&lt;T&gt;{
+            private _value: T | undefined;
+        
+            constructor(private name:string){}
+        
+            public setValue(value:T){
+                this._value = value;
+            }
+        
+            public getValue():T | undefined {
+                return this._value;
+            }
+        
+            public toString(): string{
+                return `${this.name}: ${this._value}`
+            }
+        }
+        
+        
+        let value = new NamedValue&lt;number&gt;('my number');
+        value.setValue(14)
+        console.log(value.toString());
+    </pre>
+
+    <h2>Tipe Alias</h2>
+    <p>
+        Generics pada tipe alias mengijinkan untuk membuat tipe yang lebih dapat digunakan ulang
+    </p>
+    <pre>
+        type Wrapped&lt;T&gt; ; = {value:T};
+            const WrappedValue: Wrapped&lt;number&gt; = {value: 10}
+    </pre>
+    <p>
+        Ini juga berlaku pada interface dengan sintaks "interface Wrapped&lt;T&gt;"
+    </p>
+
+    <h2>Nilai Default</h2>
+    <p>
+        Generics dapat disisipkan nilai awal apabila tidak ada nilai lain yang disisipkan atau yang dapat ditebak.
+    </p>
+    <pre>
+        class NamedValue&lt;T=string&lt;{
+            private _value: T|undefined;
+        
+            constructor(private name: string){}
+        
+            public setValue(value: T){
+                this._value = value;
+            }
+        
+            public getValue(): T|undefined{
+                return this._value;
+            }
+        
+            public toString(): string{
+                return `${this.name}: ${this._value}`
+            }
+        }
+        
+        let value = new NamedValue('myNumber');
+        value.setValue('myValue');
+        console.log(value.toString());
+    </pre>
+
+    <h2>Extend</h2>
+    <p>
+        Constrain/kendala dapat ditambahkan ke generics untuk membatasi apa yang diperbolehkan. Kendala ini membuatnya mungkin untuk mengandalkan tipe yag lebih spesifik ketika menggunakan tipe generics.
+    </p>
+
+    <pre>
+        function createLoggedPair&lt;S extends string | number, T extends string | number&gt;(v1:S, v2:T):[S,T]{
+            console.log(`creating pair: v1 = ${v1}, v2 = ${v2}`);
+            return [v1, v2];
+        }
+    </pre>
+    <p>
+        Ini dapat digabungkan dengan nilai awal/default
+    </p>
+
+</body>
+</html>
